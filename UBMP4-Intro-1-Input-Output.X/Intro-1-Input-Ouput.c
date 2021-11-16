@@ -1,6 +1,6 @@
 /*==============================================================================
  Project: Intro-1-Input-Output
- Date:    November 01, 2021
+ Date:    November 16, 2021
  
  This example UBMP4 input and output program demonstrates pushbutton input, LED
  (bit) output, port latch (byte) output, time delay functions, and simple 'if'
@@ -64,6 +64,23 @@ int main(void)
         
         // Add code for your Program Analysis and Programming Activities here:
         if(SW3 == 0)
+        // Momentary button using if structure
+        if(SW3 == 0)
+        {
+            LED4 = 1;
+        }
+        else
+        {
+            LED4 = 0;
+        }
+
+        // Momentary button using while structure
+        while(SW4 == 0)
+        {
+            LED5 = 1;
+        }
+        LED5 = 0;
+
         {
             LED4 = 1;
             LED5 = 1;
@@ -101,11 +118,12 @@ int main(void)
  * LED3 = 0 outputs 0V to the LED. LED3 = 1 outputs 5V to the LED.
  *    You can confirm the output voltage with a voltmeter if you have access
  *    to one. If you tried that, did the voltage match your prediction?
- * It's confirmed because Mr. Rampelt showed us. 
+ * Mr.Rampelt confirmed it when he showed us. 
  * 4. The statement 'if(SW2 == 0)' uses two equal signs, while the statement
  *    'LED3 = 1;' uses a single equal sign. What operation is performed by one
  *    equal sign? What operation is performed by two equal signs?
- * The two == signs checks the two given functions if they are equal or not.
+ * One = sign is called an assignment operator and is used when a new variable is introduced into the program.
+ * The two == signs checks the two given functions if they are equal or not. It's called a Conditional operator.
  * 5. The following program code includes instructions that write to the PORTC
  *    output latches directly. Try it by copying and pasting this code below
  *    the existing SW2 'if' structure, at the location shown by the comment.
@@ -121,6 +139,7 @@ int main(void)
  *    What happens when pushbutton SW3 is pressed? Identify at least one
  *    advantage and one disadvantage of controlling the LEDs using 'LATC' writes
  *    rather than through individual 'LEDn = x;' statements.
+ When I press SW3 nothing happens, 3 LEDS flash on their own except the LED beside SW3
  * When you hold switch 3 the LEDS stay on and flash but when you press it, it does one loop and turns off. 
  * 6. Next, compare the operation of 'if' and 'while' structures to simulate
  *    momentary buttons. Replace the code you added in 5, above, with this code:
@@ -143,10 +162,10 @@ int main(void)
         LED5 = 0;
 
  *    First, try pressing and releasing SW3 and SW4 one at a time.
- * 
+ * When SW3 is pressed and released nothing happens. When SW4 is pressed and released the LEDs are delayed. 
  *    Next, press and hold SW3 while pressing and releasing SW4. Does it work
  *    as expected?
- * 
+ * No, it lights up one LED at a time. LED4 then goes to LED3 then 5. 
  *    Next, try press and holding SW4 while pressing and releasing SW3. Does it
  *    work as expected? Explain the difference in operation between the 'if' and
  *    'while' structures making up the momentary button code.
