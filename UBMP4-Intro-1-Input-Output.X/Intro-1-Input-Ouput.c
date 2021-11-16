@@ -1,6 +1,6 @@
 /*==============================================================================
  Project: Intro-1-Input-Output
- Date:    May 16, 2021
+ Date:    November 01, 2021
  
  This example UBMP4 input and output program demonstrates pushbutton input, LED
  (bit) output, port latch (byte) output, time delay functions, and simple 'if'
@@ -31,29 +31,51 @@ int main(void)
     // Code in this while loop runs repeatedly.
     while(1)
 	{
+       // Conditional 'OR' code
+        if(SW3 == 0 || SW4 == 0)
+        {
+            LED4 = 1;
+        }
+        else
+        {
+            LED4 = 0;
+        }
+
         // If SW2 is pressed, make a flashy light pattern
         if(SW2 == 0)
         {
             LED3 = 1;
-            __delay_ms(100);
+            __delay_ms(10);
             LED4 = 1;
-            __delay_ms(100);
+            __delay_ms(10);
             LED5 = 1;
-            __delay_ms(100);
+            __delay_ms(10);
             LED6 = 1;
-            __delay_ms(100);
+            __delay_ms(10);
             LED3 = 0;
-            __delay_ms(100);
+            __delay_ms(10);
             LED4 = 0;
-            __delay_ms(100);
+            __delay_ms(10);
             LED5 = 0;
-            __delay_ms(100);
+            __delay_ms(10);
             LED6 = 0;
-            __delay_ms(100);
+            __delay_ms(10);
         }
         
         // Add code for your Program Analysis and Programming Activities here:
-
+        if(SW3 == 0)
+        {
+            LED4 = 1;
+            LED5 = 1;
+            __delay_ms(500);
+            LED4 = 0;
+            LED5 = 0;
+            LED3 = 1;
+            LED6 = 1;
+            __delay_ms(500);
+            LED3 = 0;
+            LED6 = 0;
+        }
         // Activate bootloader if SW1 is pressed.
         if(SW1 == 0)
         {
@@ -62,25 +84,28 @@ int main(void)
     }
 }
 
+
 /* Program Analysis
  * 
  * 1. How many times do the LEDs flash if SW2 is quickly pressed and released?
  *    Do the LEDs keep flashing when SW2 is held? Look at the program and
  *    explain why this happens when SW2 is held.
- * 
+ * The LEDS only flash if switch two is pressed, and will flash for as long as it's held. 
+ *
  * 2. Explain the difference between the statements: LED3 = 0; and LED3 = 1;
- * 
+ * LED = 0 does not run when switch 3 pressed. LED3 = 1 runs when switch 3 is pressed.
+
  * 3. What voltage do you expect the microcontroller to output to LED D3 when
  *    the statement LED3 = 0; runs? What voltage do you expect the output to be
  *    when the statement LED3 = 1; runs?
- * 
+ * LED3 = 0 outputs 0V to the LED. LED3 = 1 outputs 5V to the LED.
  *    You can confirm the output voltage with a voltmeter if you have access
  *    to one. If you tried that, did the voltage match your prediction?
- * 
+ * It's confirmed because Mr. Rampelt showed us. 
  * 4. The statement 'if(SW2 == 0)' uses two equal signs, while the statement
  *    'LED3 = 1;' uses a single equal sign. What operation is performed by one
  *    equal sign? What operation is performed by two equal signs?
- * 
+ * The two == signs checks the two given functions if they are equal or not.
  * 5. The following program code includes instructions that write to the PORTC
  *    output latches directly. Try it by copying and pasting this code below
  *    the existing SW2 'if' structure, at the location shown by the comment.
@@ -96,7 +121,7 @@ int main(void)
  *    What happens when pushbutton SW3 is pressed? Identify at least one
  *    advantage and one disadvantage of controlling the LEDs using 'LATC' writes
  *    rather than through individual 'LEDn = x;' statements.
- * 
+ * When you hold switch 3 the LEDS stay on and flash but when you press it, it does one loop and turns off. 
  * 6. Next, compare the operation of 'if' and 'while' structures to simulate
  *    momentary buttons. Replace the code you added in 5, above, with this code:
 
@@ -125,7 +150,8 @@ int main(void)
  *    Next, try press and holding SW4 while pressing and releasing SW3. Does it
  *    work as expected? Explain the difference in operation between the 'if' and
  *    'while' structures making up the momentary button code.
- * 
+ * when it pasted the code under "if", switch 4 didn't work. When I placed the code under while, and pressed switch 4,
+ * LED4 only lit up.  
  * 7. Let's explore logical conditions using 'if' statements. Replace the code
  *    added in 6, above, with this nested if code to make a logical AND
  *    condition that will light LED D4 only if both SW3 and SW4 are pressed:
@@ -181,7 +207,7 @@ int main(void)
         }
 
  *    Describe the conditions under which LED4 turns on.
- * 
+ * All of my LEDS are flashing. For the past 3 code changes my LEDS have been flashing really fast when I plug it in. 
  * 
  * Programming Activities
  * 
@@ -263,4 +289,4 @@ int main(void)
  *    connected to the microcontroller instead of the anode (positive) pin as
  *    with the other LEDs. This means that you need to make D1's output a zero
  *    to turn D1 on. Try it! Make a program that controls or flashes LED D1.
- */
+ */ 
