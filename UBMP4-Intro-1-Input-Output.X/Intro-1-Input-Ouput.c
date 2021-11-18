@@ -1,6 +1,6 @@
 /*==============================================================================
  Project: Intro-1-Input-Output
- Date:    November 16, 2021
+ Date:    November 17, 2021
  
  This example UBMP4 input and output program demonstrates pushbutton input, LED
  (bit) output, port latch (byte) output, time delay functions, and simple 'if'
@@ -64,16 +64,15 @@ int main(void)
         
         // Add code for your Program Analysis and Programming Activities here:
         if(SW3 == 0)
-        // Momentary button using if structure
-        if(SW3 == 0)
+         // Conditional 'OR' code
+        // Make a tone while SW5 is held
+        if(SW5 == 0)
         {
-            LED4 = 1;
+            BEEPER = 1;
+            __delay_us(363);
+            BEEPER = 0;
+            __delay_us(363);
         }
-        else
-        {
-            LED4 = 0;
-        }
-
         // Momentary button using while structure
         while(SW4 == 0)
         {
@@ -232,11 +231,12 @@ int main(void)
  * 
  * 1. The statement '__delay_ms(100);' creates a 100ms delay. Try changing one
  *    or more of the delay values in the program to 500ms and see what happens.
- * 
+ * Coming from a delay of 10ms, 500ms is a huge difference. 
  *    Can the delay be made even longer? Try 1000 ms. How big can the delay be
  *    before MPLAB-X produces an error message? (Hint: can you think of a fast
  *    and efficient way of guessing an unknown number?)
- * 
+ * 500ms, 1000ms, 2500ms, and 4200ms works. 4200ms is the maximum delay capacity.
+ * I started from 5000 and subtracted 500ms or 250ms each time. 
  * 2. The '__delay_ms();' function only accepts integers as delay values. To
  *    make delays shorter than 1ms, specify a delay in microseconds using the
  *    '__delay_us();' function. You won't be able to see such short LED flashes
