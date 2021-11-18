@@ -45,21 +45,21 @@ int main(void)
         if(SW2 == 0)
         {
             LED3 = 1;
-            __delay_ms(10);
+            __delay_ms(100);
             LED4 = 1;
-            __delay_ms(10);
+            __delay_ms(100);
             LED5 = 1;
-            __delay_ms(10);
+            __delay_ms(100);
             LED6 = 1;
-            __delay_ms(10);
+            __delay_ms(100);
             LED3 = 0;
-            __delay_ms(10);
+            __delay_ms(100);
             LED4 = 0;
-            __delay_ms(10);
+            __delay_ms(100);
             LED5 = 0;
-            __delay_ms(10);
+            __delay_ms(100);
             LED6 = 0;
-            __delay_ms(10);
+            __delay_ms(100);
         }
         
         // Add code for your Program Analysis and Programming Activities here:
@@ -69,9 +69,9 @@ int main(void)
         if(SW5 == 0)
         {
             BEEPER = 1;
-            __delay_us(363);
+            __delay_us(358);
             BEEPER = 0;
-            __delay_us(363);
+            __delay_us(358);
         }
         // Momentary button using while structure
         while(SW4 == 0)
