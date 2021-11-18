@@ -63,16 +63,24 @@ int main(void)
         }
         
         // Add code for your Program Analysis and Programming Activities here:
-        if(SW3 == 0)
+       if(SW5 == 0)
+              {
+            BEEPER = 1;
+            __delay_us(1000);
+            BEEPER = 0;
+            __delay_us(1000);
+        }
+   
+   if(SW4 == 0)
+              {
+            BEEPER = 1;
+            __delay_us(333);
+            BEEPER = 0;
+            __delay_us(333);
+        }
+
          // Conditional 'OR' code
         // Make a tone while SW5 is held
-        if(SW5 == 0)
-        {
-            BEEPER = 1;
-            __delay_us(358);
-            BEEPER = 0;
-            __delay_us(358);
-        }
         // Momentary button using while structure
         while(SW4 == 0)
         {
@@ -80,18 +88,6 @@ int main(void)
         }
         LED5 = 0;
 
-        {
-            LED4 = 1;
-            LED5 = 1;
-            __delay_ms(500);
-            LED4 = 0;
-            LED5 = 0;
-            LED3 = 1;
-            LED6 = 1;
-            __delay_ms(500);
-            LED3 = 0;
-            LED6 = 0;
-        }
         // Activate bootloader if SW1 is pressed.
         if(SW1 == 0)
         {
