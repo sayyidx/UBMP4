@@ -121,7 +121,7 @@ int main(void)
  * The two == signs checks the two given functions if they are equal or not. It's called a Conditional operator.
  * 5. The following program code includes instructions that write to the PORTC
  *    output latches directly. Try it by copying and pasting this code below
- *    the existing SW2 'if' structure, at the location shown by the comment.
+ *    the existing SW2 'if' structure, at the location shown by the comment. test
 
         if(SW3 == 0)
         {
@@ -168,7 +168,7 @@ int main(void)
  * LED4 only lit up.  
  * 7. Let's explore logical conditions using 'if' statements. Replace the code
  *    added in 6, above, with this nested if code to make a logical AND
- *    condition that will light LED D4 only if both SW3 and SW4 are pressed:
+ *    condition that will light LED D4 only if both SW3 and SW4 are pressed: edit
 
         // Nested if 'AND' code
         if(SW3 == 0)
@@ -304,4 +304,5 @@ int main(void)
  *    connected to the microcontroller instead of the anode (positive) pin as
  *    with the other LEDs. This means that you need to make D1's output a zero
  *    to turn D1 on. Try it! Make a program that controls or flashes LED D1.
+ * test december 2nd,2021
  */ 
