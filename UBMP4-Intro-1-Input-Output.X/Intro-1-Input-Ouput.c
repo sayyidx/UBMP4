@@ -1,6 +1,6 @@
 /*==============================================================================
  Project: Intro-1-Input-Output
- Date:    November 17, 2021
+ Date:    December 14, 2021
  
  This example UBMP4 input and output program demonstrates pushbutton input, LED
  (bit) output, port latch (byte) output, time delay functions, and simple 'if'
@@ -31,7 +31,7 @@ int main(void)
     // Code in this while loop runs repeatedly.
     while(1)
 	{
-       // Conditional 'OR' code
+       /*// Conditional 'OR' code
         if(SW3 == 0 || SW4 == 0)
         {
             LED4 = 1;
@@ -60,33 +60,45 @@ int main(void)
             __delay_ms(100);
             LED6 = 0;
             __delay_ms(100);
-        }
+        }*/
         
         // Add code for your Program Analysis and Programming Activities here:
-       if(SW5 == 0)
-              {
+       if(SW2 == 0)
+       {
+            LED3 = 1;
             BEEPER = 1;
-            __delay_us(1000);
+            __delay_us(567);
             BEEPER = 0;
-            __delay_us(1000);
+            __delay_us(567);
+       }
+       else
+       {
+           LED3 = 0;
+       }
+
+
+        if(SW3 == 0)
+        {
+            LED4 = 1;
+            BEEPER = 1;
+            __delay_us(956);
+            BEEPER = 0;
+            __delay_us(967);
         }
-   
-   if(SW4 == 0)
-              {
-            BEEPER = 1;
-            __delay_us(333);
-            BEEPER = 0;
-            __delay_us(333);
+        else
+        {
+            LED4 = 0;
         }
 
-         // Conditional 'OR' code
-        // Make a tone while SW5 is held
-        // Momentary button using while structure
-        while(SW4 == 0)
-        {
+        if(SW4 == 0 && SW5 == 1)
+        {  
             LED5 = 1;
         }
-        LED5 = 0;
+
+        if(SW5 == 0)
+        {
+            LED5 = 0;
+        }
 
         // Activate bootloader if SW1 is pressed.
         if(SW1 == 0)
@@ -95,7 +107,6 @@ int main(void)
         }
     }
 }
-
 
 /* Program Analysis
  * 
@@ -304,5 +315,5 @@ int main(void)
  *    connected to the microcontroller instead of the anode (positive) pin as
  *    with the other LEDs. This means that you need to make D1's output a zero
  *    to turn D1 on. Try it! Make a program that controls or flashes LED D1.
- * test december 2nd,2021
+ * december 14, 2021
  */ 
